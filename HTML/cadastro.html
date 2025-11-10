@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Cadastro - Flop+</title>
+</head>
+<body class="body-auth">
+<header>
+    <div class="logo-container">
+        <a href="../index.html">
+            <img src="../IMG/logo.png" alt="Logo da FLOP+" width="130">
+        </a>
+    </div>
+</header>
+<main class="auth-container">
+    <form action="inicio.html">
+        <h1>Cadastro</h1>
+        <p class="subtitulo-login">Crie sua conta. É rápido e você vai se arrepender.</p>
+
+        <div class="inserir">
+            <label for="nome">Nome Completo</label>
+            <i class="fas fa-user icon-prefix"></i>
+            <input type="text" name="nome" id="nome" placeholder="Ex.: Ygona Moura" required>
+        </div>
+        <div class="inserir">
+            <label for="usuario">Usuário</label>
+            <i class="fas fa-at icon-prefix"></i>
+            <input type="text" name="usuario" id="usuario" placeholder="Ex.: @ygona" required>
+        </div>
+        <div class="inserir">
+            <label for="email">Email</label>
+            <i class="fas fa-envelope icon-prefix"></i>
+            <input type="email" name="email" id="email" placeholder="Ex.: ygona@email.com" required>
+        </div>
+
+        <div class="inserir">
+            <label for="senha">Senha</label>
+            <i class="fas fa-lock icon-prefix"></i>
+            <input type="password" name="senha" id="senha" placeholder="Crie uma senha forte" required>
+            <i class="fas fa-eye toggle-senha-icon" id="toggleSenha"></i>
+        </div>
+
+        <div class="inserir">
+            <label for="confirmar-senha">Confirmar Senha</label>
+            <i class="fas fa-lock icon-prefix"></i>
+            <input type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Confirme sua senha"
+                   required>
+            <i class="fas fa-eye toggle-senha-icon" id="toggleConfirmarSenha"></i>
+        </div>
+
+        <button class="entrar" type="submit">Cadastrar</button>
+        <div class="cadastro-link">
+            <p>Já possui uma conta? <a href="login.html">Faça login</a></p>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <div class="footer-logo">
+        <img src="../IMG/logo.png" alt="Logo Flop+" width="150">
+    </div>
+    <div class="footer-links">
+        <div class="link-column">
+            <h4>Navegação</h4>
+            <a href="#">Início</a>
+            <a href="#">Catálogo</a>
+            <a href="#">Minha Conta</a>
+        </div>
+        <div class="link-column">
+            <h4>Ajuda</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Central de Ajuda</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="/HTML/aboutme.html">Sobre mim</a>
+        </div>
+    </div>
+    <div class="footer-social">
+        <h4>Não nos siga</h4>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="footer-copy">
+        <p>&copy; 2025 Flop+ Inc. Nenhum direito reservado.</p>
+    </div>
+</footer>
+
+<script>
+    function setupToggleSenha(inputId, toggleId) {
+        const toggle = document.getElementById(toggleId);
+        const input = document.getElementById(inputId);
+
+        if (toggle && input) {
+            toggle.addEventListener('click', function () {
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+    }
+
+    setupToggleSenha('senha', 'toggleSenha');
+    setupToggleSenha('confirmar-senha', 'toggleConfirmarSenha');
+</script>
+</body>
+</html>

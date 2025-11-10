@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Login - Flop+</title>
+</head>
+<body class="body-auth">
+<header>
+    <div class="logo-container">
+        <a href="/index.html"> <img src="../IMG/logo.png" alt="Logo da FLOP+" width="130">
+        </a>
+    </div>
+</header>
+<main class="auth-container">
+
+    <form id="form-login" action="inicio.html">
+        <h1>Acesse sua conta</h1>
+        <p class="subtitulo-login">Bem-vinde de volta! Por quê?</p>
+
+        <div id="mensagem-erro" class="mensagem-erro"></div>
+
+        <div class="inserir">
+            <label for="usuario">Usuário</label>
+            <i class="fas fa-at icon-prefix"></i>
+            <input type="text" name="usuario" id="usuario" placeholder="Seu usuário (se você lembra)">
+        </div>
+
+        <div class="inserir">
+            <label for="senha">Senha</label>
+            <i class="fas fa-lock icon-prefix"></i>
+            <input type="password" name="senha" id="senha" placeholder="Sua senha (boa sorte)">
+            <i class="fas fa-eye toggle-senha-icon" id="toggleSenha"></i>
+        </div>
+
+        <div class="opcoes-form">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="lembrar">
+                    Lembrar-me
+                </label>
+            </div>
+            <div class="link">
+                <a href="#">Esqueceu sua senha? Se vire!</a>
+            </div>
+        </div>
+
+        <button class="entrar" type="submit">Entrar</button>
+
+        <div class="ou-divisor">
+            <span>OU</span>
+        </div>
+
+        <div class="social-login">
+            <button type="button" class="social-btn google"><i class="fab fa-google"></i> Entrar com Google</button>
+            <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i> Entrar com Facebook
+            </button>
+        </div>
+
+        <div class="cadastro-link">
+            <p>Não possui uma conta? <a href="cadastro.html">Cadastre-se!</a></p>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <div class="footer-logo">
+        <img src="../IMG/logo.png" alt="Logo Flop+" width="150">
+    </div>
+    <div class="footer-links">
+        <div class="link-column">
+            <h4>Navegação</h4>
+            <a href="#">Início</a>
+            <a href="#">Catálogo</a>
+            <a href="#">Minha Conta</a>
+        </div>
+        <div class="link-column">
+            <h4>Ajuda</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Central de Ajuda</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="/HTML/aboutme.html">Sobre mim</a>
+        </div>
+    </div>
+    <div class="footer-social">
+        <h4>Não nos siga</h4>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="footer-copy">
+        <p>&copy; 2025 Flop+ Inc. Nenhum direito reservado.</p>
+    </div>
+</footer>
+
+<script>
+    const toggleSenha = document.getElementById('toggleSenha');
+    const senhaInput = document.getElementById('senha');
+
+    if (toggleSenha && senhaInput) {
+        toggleSenha.addEventListener('click', function () {
+            const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            senhaInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    }
+</script>
+
+</body>
+</html>
