@@ -98,7 +98,6 @@ header {
     font-weight: 500;
     transition: all 0.3s ease;
 }
-
 .btn-login:hover {
     background: var(--cor-texto-principal);
     color: var(--cor-texto-preto);
@@ -113,7 +112,6 @@ header {
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
 .btn-cadastro:hover {
     background: var(--cor-principal-hover);
     color: var(--cor-texto-preto);
@@ -160,7 +158,6 @@ header {
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
-
 .btn-cta:hover {
     background: var(--cor-principal-hover);
     transform: scale(1.05);
@@ -782,7 +779,6 @@ form > h1 {
     font-size: 2.2rem;
     text-align: center;
 }
-
 .subtitulo-login {
     color: #584805;
     font-size: 1rem;
@@ -827,7 +823,6 @@ form > h1 {
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
 }
-
 .inserir > input:focus {
     border-color: var(--cor-texto-preto);
 }
@@ -877,7 +872,7 @@ form > h1 {
 
 .checkbox input[type="checkbox"]:checked {
     background-color: var(--cor-texto-preto);
-    border-color: var(--cor-texto-preto);
+    border: 2px solid var(--cor-texto-preto);
 }
 
 .checkbox input[type="checkbox"]::before {
@@ -1075,7 +1070,7 @@ form > h1 {
 
 .curiosidades-list li::before {
     content: '\f005';
-    font-family: 'Font Awesome 6 Free';
+    font-family: 'Font Awesome 6 Free', sans-serif;
     font-weight: 900;
     color: var(--cor-principal);
     position: absolute;
