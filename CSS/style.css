@@ -16,6 +16,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--cor-fundo);
@@ -23,7 +27,7 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh;;
 }
 
 main {
@@ -98,6 +102,7 @@ header {
     font-weight: 500;
     transition: all 0.3s ease;
 }
+
 .btn-login:hover {
     background: var(--cor-texto-principal);
     color: var(--cor-texto-preto);
@@ -112,6 +117,7 @@ header {
     font-weight: 600;
     transition: all 0.3s ease;
 }
+
 .btn-cadastro:hover {
     background: var(--cor-principal-hover);
     color: var(--cor-texto-preto);
@@ -158,6 +164,7 @@ header {
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
+
 .btn-cta:hover {
     background: var(--cor-principal-hover);
     transform: scale(1.05);
@@ -371,6 +378,10 @@ body.catalog-page {
 }
 
 .header-catalog {
+    display: block;
+    padding: 0;
+    justify-content: normal;
+    align-items: normal;
     background-color: rgba(0, 0, 0, 0.7);
     transition: background-color 0.3s ease;
 }
@@ -381,9 +392,12 @@ body.catalog-page {
 
 .header-nav {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 5vw;
+    box-sizing: border-box;
 }
 
 .header-left, .header-right {
@@ -779,6 +793,7 @@ form > h1 {
     font-size: 2.2rem;
     text-align: center;
 }
+
 .subtitulo-login {
     color: #584805;
     font-size: 1rem;
@@ -823,6 +838,7 @@ form > h1 {
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
 }
+
 .inserir > input:focus {
     border-color: var(--cor-texto-preto);
 }
@@ -1025,6 +1041,7 @@ form > h1 {
     object-fit: cover;
     border: 4px solid var(--cor-principal);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    margin: 20px;
 }
 
 .about-bio {
