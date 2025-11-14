@@ -166,6 +166,7 @@ header {
 }
 
 .btn-cta:hover {
+    color: var(--cor-texto-preto);
     background: var(--cor-principal-hover);
     transform: scale(1.05);
 }
