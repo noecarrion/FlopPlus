@@ -1,0 +1,23 @@
+# IDEs e Editores
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependencias e logs do Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Saidas de build e testes
+dist/
+coverage/
+
+# Arquivos do Sistema Operacional
+Thumbs.db
+[Ee]xternals/
+.DS_Store

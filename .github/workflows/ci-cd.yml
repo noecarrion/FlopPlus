@@ -1,0 +1,79 @@
+name: Pipeline CI/CD - FlopPlus
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permissoes necessarias para publicacao no GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite apenas um deploy simultaneo no Pages
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  # ==========================================================
+  # ETAPA 1: CONTINUOUS INTEGRATION (CI)
+  # Executada a cada push e pull_request direcionados a main
+  # ==========================================================
+  continuous-integration:
+    name: CI - Build, Validacao e Testes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout do Repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar Ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 3. Instalar Dependencias
+        run: npm ci
+
+      - name: 4. Executar Testes de Integridade de Links e Assets
+        run: npm test
+
+      - name: 5. Executar Validacao Sintatica HTML (HTMLHint)
+        run: npm run lint:ci
+
+  # ==========================================================
+  # ETAPA 2: CONTINUOUS DEPLOYMENT (CD)
+  # Executada apenas em push na main, apos conclusao da CI
+  # ==========================================================
+  continuous-deployment:
+    name: CD - Deploy no GitHub Pages
+    needs: continuous-integration
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 1. Checkout do Repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: 3. Fazer Upload do Artefato do Site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: 4. Realizar Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
