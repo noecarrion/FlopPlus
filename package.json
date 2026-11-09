@@ -1,0 +1,27 @@
+{
+  "name": "flopplus",
+  "version": "1.0.0",
+  "description": "Flop+ - Plataforma de streaming com pipeline CI/CD no GitHub Actions",
+  "main": "index.html",
+  "scripts": {
+    "test": "node tests/validate-integrity.js",
+    "lint": "htmlhint index.html HTML/*.html",
+    "lint:ci": "node node_modules/htmlhint/bin/htmlhint index.html HTML/*.html",
+    "validate": "npm run test && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noecarrion/FlopPlus.git"
+  },
+  "keywords": [
+    "devops",
+    "ci-cd",
+    "github-actions",
+    "github-pages"
+  ],
+  "author": "noecarrion",
+  "license": "MIT",
+  "devDependencies": {
+    "htmlhint": "^1.1.4"
+  }
+}
